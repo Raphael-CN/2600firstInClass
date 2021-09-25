@@ -19,7 +19,15 @@ int main()
     {
         if (keepPlaying == 2)
         {
-            // change max number
+            printf("The current max number is %d.\nWhat would you like to change it to: ", maxNumber);
+            scanf("%d", &maxNumber);
+
+            while (maxNumber < 1 || maxNumber > INT_MAX)
+            {
+                printf("Please pick a positive number less than 2147483647\n");
+                printf("The current max number is %d.\nWhat would you like to change it to: ", maxNumber);
+                scanf("%d", &maxNumber);
+            }
         }
 
         printf("Let's Play the Guessing Game!\n\n");
@@ -38,11 +46,11 @@ int main()
             }
             else if (guess < target)
             {
-                printf("Your guess was smaller than target! Try again!\n\n");
+                printf("Your guess was smaller than target! Try higher!\n\n");
             }
             else
             {
-                printf("Your guess was bigger than the target! Try again!\n\n");
+                printf("Your guess was bigger than the target! Try lower!\n\n");
             }
         }
 
