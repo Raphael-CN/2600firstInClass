@@ -22,6 +22,17 @@ int main()
     srand((unsigned) time(&t));
     int keepPlaying = 1, maxNumber = 10, target = 0, guess = 0;
 
+
+    printf("Press 1 to play a game\nPress 2 to change the max number\nPress 3 to quit\n");
+    scanf("%d", &keepPlaying);
+
+    while(keepPlaying < 1 && keepPlaying > 3)
+    {
+        printf("Please pick a valid option.\n");
+        printf("Press 1 to play a game\nPress 2 to change the max number\nPress 3 to quit\n");
+        scanf("%d", &keepPlaying);
+    }
+    
     // Main loop
     while (keepPlaying != 3)
     {
