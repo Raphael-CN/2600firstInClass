@@ -2,6 +2,13 @@
 Raphael Napinas
 First In Class
 Restaurant Bill
+
+OUTLINE:
+1. Get a random number from 0-3.
+2. Each number will represent a different meal.
+3. Add the ranomly selected meal's price to the bill.
+4. Ask for input for tax and tip. (Tax will be in percent so must convert it to decimal.)
+5. Calculate the total bill and display the final cost.
 */
 
 #include <stdio.h>
@@ -37,17 +44,17 @@ int main()
         printf("Your Meal: Pizza - $22.35\n");
     }
 
-    printf("What is the tax percentage: ");
+    printf("What is the tax percentage: "); // Treat as %, not as decimal.
     scanf("%f", &tax);
     printf("What is your tip: ");
     scanf("%f", &tip);
     
-    float taxPercent = tax / 100;
+    float taxDecimal = tax / 100; // Turn tax percentage into decimal
 
-    printf("\nFINAL BILL:\n");
+    printf("\nFINAL BILL:\n"); // Displaying final outputs
     printf("Meal Cost: %.2f\n", bill);
     printf("Tax: %.2f% Tip: $%.2f\n", tax, tip);
-    printf("\nTotal Bill with Tax and Tip: $%.2f", bill + (bill * taxPercent) + tip);
+    printf("\nTotal Bill with Tax and Tip: $%.2f", bill + (bill * taxDecimal) + tip);
 
     return 0;
 }
