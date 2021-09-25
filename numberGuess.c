@@ -22,7 +22,7 @@ int main()
     srand((unsigned) time(&t));
     int keepPlaying = 1, maxNumber = 10, target = 0, guess = 0;
 
-
+    // Start Menu
     printf("Press 1 to play a game\nPress 2 to change the max number\nPress 3 to quit\n");
     scanf("%d", &keepPlaying);
 
@@ -36,6 +36,7 @@ int main()
     // Main loop
     while (keepPlaying != 3)
     {
+        // Change Max Number
         if (keepPlaying == 2)
         {
             printf("The current max number is %d.\nWhat would you like to change it to: ", maxNumber);
@@ -50,10 +51,11 @@ int main()
         }
 
         printf("Let's Play the Guessing Game!\n\n");
-
+        // Generate random target
         target = (rand() % maxNumber) + 1;
         printf("A random number has been chosen!\nThis number is between 1 and %d\n\n", maxNumber);
 
+        // Repeatedly guess until correct
         while (guess != target)
         {
             printf("Guess a number between 1 and %d: ", maxNumber);
@@ -73,6 +75,7 @@ int main()
             }
         }
 
+        // Ask to play again
         printf("Do you want to play again?\n");
         printf("Press 1 to play a game\nPress 2 to change the max number\nPress 3 to quit\n");
         scanf("%d", &keepPlaying);
@@ -85,6 +88,7 @@ int main()
         }
     }
 
+    // End program
     printf("Thanks for playing!");
 
     return 0;
