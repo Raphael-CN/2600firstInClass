@@ -2,6 +2,14 @@
 Raphael Napinas
 First In Class
 Number Guessing Games
+
+OUTLINE
+1. Outer Loop Menu Screen
+2. Check if user wants to change max number
+3. Randomly generate number between 1 and max
+4. Get the user's guess and keep checking if it's correct
+5. Ask to play again and show menu screen
+6. Once they choose option 3, exit loop and end program
 */
 
 #include <stdio.h>
