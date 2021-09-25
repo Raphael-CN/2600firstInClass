@@ -10,6 +10,12 @@ OUTLINE
 4. Get the user's guess and keep checking if it's correct
 5. Ask to play again and show menu screen
 6. Once they choose option 3, exit loop and end program
+
+**
+To save the users request for max number, I will write it into a file 
+to be read at the start of the program.
+**
+
 */
 
 #include <stdio.h>
@@ -20,7 +26,14 @@ int main()
 {
     time_t t;
     srand((unsigned) time(&t));
-    int keepPlaying = 1, maxNumber = 10, target = 0, guess = 0;
+    int keepPlaying = 1, maxNumber = 0, target = 0, guess = 0;
+    
+    // Reads in what is in the max number file to be maxNumber
+    FILE *numFile;
+    numFile = fopen("maxUserNumber.txt", "r");
+    fscanf(numFile, "%d", &maxNumber);
+    fclose(numFile);
+    // Closes file
 
     // Start Menu
     printf("Press 1 to play a game\nPress 2 to change the max number\nPress 3 to quit\n");
@@ -90,6 +103,11 @@ int main()
 
     // End program
     printf("Thanks for playing!");
+
+    // Opens and clears file
+    numFile = fopen("maxUserNumber.txt", "w+");
+    fprintf(numFile, "%d\n", maxNumber); // Writes new maxNumber into file
+    fclose(numFile); // Closes file
 
     return 0;
 }
